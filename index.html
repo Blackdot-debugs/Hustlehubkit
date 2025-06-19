@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HustleHubKit</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <style>
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>HustleHubKit</title>  
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">  
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>  
+  <style>  
     body {
       margin: 0;
       padding: 20px;
@@ -40,7 +39,8 @@
       width: 100%;
       border-radius: 12px;
       margin-bottom: 20px;
-      cursor: pointer;
+      pointer-events: none;
+      user-select: none;
     }
     .description {
       margin-bottom: 20px;
@@ -134,8 +134,12 @@
       <span>2.7K followers</span>
     </div>
 
-    <a href='https://postimg.cc/p9KNLk6r' target='_blank'><img src='https://i.postimg.cc/5tRfpR5B/file-0000000004d061f79d9fd45220880ee4.png' border='0' alt='file-0000000004d061f79d9fd45220880ee4'/></a>
-
+    <!-- PROTECTED IMAGE (non-clickable, non-downloadable) -->
+    <img src="https://i.postimg.cc/5tRfpR5B/file-0000000004d061f79d9fd45220880ee4.png"
+         alt="Book Cover"
+         class="cover-img"
+         oncontextmenu="return false"
+         draggable="false" />
 
     <div class="description">
       <p>
