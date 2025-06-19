@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HustleHubKit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Nunito', sans-serif;
+      background: #fff;
+      color: #111;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .info-tags {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+    .cover-img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .description {
+      margin-bottom: 20px;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: #333;
+    }
+    .tick-icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      color: green;
+    }
+    .file-list {
+      margin-bottom: 20px;
+    }
+    .file-item {
+      border: 1px solid #eee;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 12px;
+    }
+    .file-type {
+      margin-right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .file-details {
+      flex-grow: 1;
+    }
+    .file-name {
+      font-size: 15px;
+    }
+    .file-size {
+      font-size: 13px;
+      color: #666;
+    }
+    .download-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: blue;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .complete-btn {
+      background: black;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 12px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .footer {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #666;
+    }
+    .svg-icon {
+      width: 20px;
+      height: 20px;
+    }
+    .lock-icon {
+      width: 18px;
+      height: 18px;
+      color: #999;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Hustlehubkit</div>
+    <h2>Digital Income Blueprint – eBook for HustleHubKit</h2>
+    <div class="info-tags">
+      <span>@hustlehubkit</span>
+      <span>2.7K followers</span>
+    </div>
+
+    <a href="https://drive.google.com/uc?export=download&id=13VRCxxiUwWB4T6l_Qo8LUYz9Jj3oWq_M" download>
+      <img src="https://drive.google.com/uc?export=download&id=13VRCxxiUwWB4T6l_Qo8LUYz9Jj3oWq_M" alt="eBook Cover" class="cover-img" />
+    </a>
+
+    <div class="description">
+      <p>
+        Purchase our premium eBook to learn how to start your digital income journey with zero investment. Perfect for teens and young adults looking to build online income streams.
+      </p>
+      <ul class="feature-list">
+        <li><svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Step-by-step guide for beginners</li>
+        <li><svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> No investment required</li>
+        <li><svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Works for ages 15 to 25</li>
+        <li><svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> 10+ practical methods to earn</li>
+        <li><svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Instantly downloadable after purchase</li>
+      </ul>
+    </div>
+
+    <div class="file-list">
+      <div class="file-item">
+        <span class="file-type">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16l4-4a3 3 0 014 0l3 3 3-3a3 3 0 014 0v5H3v-1z" />
+          </svg>
+        </span>
+        <div class="file-details">
+          <div class="file-name">ebook_cover.jpg</div>
+          <div class="file-size">JPG · 2.3 mb</div>
+        </div>
+        <a href="https://drive.google.com/uc?export=download&id=13VRCxxiUwWB4T6l_Qo8LUYz9Jj3oWq_M" download class="download-btn">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          Download
+        </a>
+      </div>
+
+      <div class="file-item">
+        <span class="file-type">
+          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
+          </svg>
+        </span>
+        <div class="file-details">
+          <div class="file-name">Digital_Income_Blueprint.pdf</div>
+          <div class="file-size">PDF · 1.9 mb</div>
+        </div>
+        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c.828 0 1.5.672 1.5 1.5S12.828 14 12 14s-1.5-.672-1.5-1.5S11.172 11 12 11z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 11V7a5 5 0 00-10 0v4H5v9h14v-9h-2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <button class="complete-btn" onclick="makePayment()">Pay Now</button>
+    <div class="footer">Next up ➤ Start your first online gig</div>
+  </div>
+
+  <script>
+    function makePayment() {
+      var options = {
+        key: "rzp_test_YourAPIKeyHere",
+        amount: 19900,
+        currency: "INR",
+        name: "HustleHubKit",
+        description: "Digital Income Blueprint eBook",
+        image: "https://yourwebsite.com/logo.png",
+        handler: function (response) {
+          alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        prefill: {
+          name: "",
+          email: "",
+          contact: ""
+        },
+        theme: {
+          color: "#000000"
+        }
+      };
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+    }
+  </script>
+</body>
+</html>
