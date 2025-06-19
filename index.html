@@ -37,10 +37,13 @@
     }
     .cover-img {
       width: 100%;
+      max-width: 100%;
+      height: auto;
       border-radius: 12px;
       margin-bottom: 20px;
       pointer-events: none;
       user-select: none;
+      display: block;
     }
     .description {
       margin-bottom: 20px;
@@ -93,7 +96,6 @@
     .download-btn {
       display: flex;
       align-items: center;
-      gap: 5px;
       color: blue;
       text-decoration: none;
       font-size: 14px;
@@ -134,7 +136,6 @@
       <span>2.7K followers</span>
     </div>
 
-    <!-- PROTECTED IMAGE (non-clickable, non-downloadable) -->
     <img src="https://i.postimg.cc/5tRfpR5B/file-0000000004d061f79d9fd45220880ee4.png"
          alt="Book Cover"
          class="cover-img"
@@ -169,7 +170,6 @@
           <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
           </svg>
-          Download
         </a>
       </div>
 
