@@ -65,41 +65,61 @@
       margin-right: 10px;
       color: green;
     }
-    .file-list {
-      margin-bottom: 20px;
-    }
+
     .file-item {
-      border: 1px solid #eee;
-      padding: 10px 12px;
-      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      padding: 12px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-radius: 12px;
+      border-radius: 10px;
+      font-size: 15px;
+      box-sizing: border-box;
     }
     .file-type {
-      margin-right: 12px;
       display: flex;
       align-items: center;
-      gap: 6px;
     }
     .file-details {
       flex-grow: 1;
+      margin-left: 10px;
     }
     .file-name {
-      font-size: 15px;
+      font-weight: 600;
     }
     .file-size {
       font-size: 13px;
       color: #666;
     }
-    .download-btn {
-      display: flex;
-      align-items: center;
-      color: blue;
-      text-decoration: none;
-      font-size: 14px;
+    .svg-icon {
+      width: 20px;
+      height: 20px;
+      color: #222;
     }
+    .lock-icon {
+      width: 18px;
+      height: 18px;
+      color: #999;
+    }
+
+    .email-input {
+      margin-bottom: 20px;
+    }
+    .email-input label {
+      font-size: 15px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .email-input input {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
     .complete-btn {
       background: black;
       color: white;
@@ -109,47 +129,29 @@
       border-radius: 12px;
       width: 100%;
       cursor: pointer;
+      margin-top: 10px;
     }
+
     .footer {
       margin-top: 25px;
       font-size: 14px;
       color: #666;
     }
-    .svg-icon {
-      width: 20px;
-      height: 20px;
-    }
-    .lock-icon {
-      width: 18px;
-      height: 18px;
-      color: #999;
-      margin-left: 10px;
-    }
-
-    .email-input {
-      margin-bottom: 20px;
-    }
-
-    .email-input input {
-      width: 100%;
-      padding: 12px;
-      font-size: 15px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-    }
 
     .popup {
       position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
       background-color: #111;
       color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 14px;
+      padding: 14px;
+      font-size: 15px;
+      text-align: center;
       opacity: 0;
       pointer-events: none;
+      z-index: 9999;
       transition: opacity 0.3s ease;
     }
 
@@ -160,11 +162,11 @@
 
     @keyframes slideUp {
       from {
-        transform: translate(-50%, 20px);
+        transform: translateY(100%);
         opacity: 0;
       }
       to {
-        transform: translate(-50%, 0);
+        transform: translateY(0);
         opacity: 1;
       }
     }
@@ -173,10 +175,10 @@
 <body>
   <div class="container">
     <div class="logo">Hustlehubkit</div>
-    <h2>Digital Income Blueprint – eBook for HustleHubKit</h2>
+    <h2>Digital Income Blueprint - Beginner Friendly (PDF) </h2>
     <div class="info-tags">
-      <span>@hustlehubkit</span>
-      <span>2.7K followers</span>
+      <span>Hustlehubkit</span>
+      <span>3.2K followers</span>
     </div>
 
     <img src="https://i.postimg.cc/5tRfpR5B/file-0000000004d061f79d9fd45220880ee4.png"
@@ -198,16 +200,34 @@
       </ul>
     </div>
 
+    <!-- File Preview -->
+    <div class="file-item">
+      <div class="file-type">
+        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
+        </svg>
+      </div>
+      <div class="file-details">
+        <div class="file-name">Digital Income Blueprint.pdf</div>
+        <div class="file-size">PDF · 1.9 MB</div>
+      </div>
+      <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c.828 0 1.5.672 1.5 1.5S12.828 14 12 14s-1.5-.672-1.5-1.5S11.172 11 12 11z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 11V7a5 5 0 00-10 0v4H5v9h14v-9h-2z"/>
+      </svg>
+    </div>
+
+    <!-- Email Input -->
     <div class="email-input">
-      <label for="userEmail" style="display:block; font-size: 15px; margin-bottom: 6px;">Enter your Email to receive the eBook:</label>
+      <label for="userEmail">Enter your Email to receive the eBook:</label>
       <input type="email" id="userEmail" placeholder="example@email.com" required />
     </div>
 
     <button class="complete-btn" onclick="makePayment()">Pay Now</button>
-    <div class="footer">Next up ➤ Start your first online gig</div>
+    <div class="footer"style="text-align:center">Payment Secured By Razorpay </div>
   </div>
 
-  <div class="popup" id="popup">Please enter a valid email</div>
+  <div class="popup" id="popup">⚠️ Please enter a valid email before proceeding to payment.</div>
 
   <script>
     function makePayment() {
@@ -217,19 +237,18 @@
 
       if (!email || !validateEmail(email)) {
         popup.classList.add("show");
-        setTimeout(() => popup.classList.remove("show"), 2000);
+        setTimeout(() => popup.classList.remove("show"), 3000);
         return;
       }
 
       const options = {
-        key: "rzp_test_YourAPIKeyHere", // Replace with your actual Razorpay key
+        key: "rzp_test_YourAPIKeyHere", // Replace with your Razorpay API key
         amount: 19900,
         currency: "INR",
         name: "HustleHubKit",
         description: "Digital Income Blueprint eBook",
         handler: function (response) {
-          // Send data to Make.com
-          fetch("https://hook.make.com/your-webhook-id", {
+          fetch("https://hook.eu2.make.com/7f5jl5jg0ipec9srkeyopcgq53oo8luy", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -237,7 +256,7 @@
               payment_id: response.razorpay_payment_id
             })
           });
-          alert("Payment Successful! Check your email for the eBook.");
+          alert("Payment Successful! The eBook will be sent to your email.");
         },
         prefill: {
           email: email
@@ -246,6 +265,7 @@
           color: "#000000"
         }
       };
+
       const rzp = new Razorpay(options);
       rzp.open();
     }
