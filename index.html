@@ -125,6 +125,49 @@
       color: #999;
       margin-left: 10px;
     }
+
+    .email-input {
+      margin-bottom: 20px;
+    }
+
+    .email-input input {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .popup {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #111;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .popup.show {
+      opacity: 1;
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translate(-50%, 20px);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -155,68 +198,60 @@
       </ul>
     </div>
 
-    <div class="file-list">
-      <div class="file-item">
-        <span class="file-type">
-          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16l4-4a3 3 0 014 0l3 3 3-3a3 3 0 014 0v5H3v-1z" />
-          </svg>
-        </span>
-        <div class="file-details">
-          <div class="file-name">ebook_cover.jpg</div>
-          <div class="file-size">JPG · 2.3 mb</div>
-        </div>
-        <a href="https://drive.google.com/uc?export=download&id=13VRCxxiUwWB4T6l_Qo8LUYz9Jj3oWq_M" download class="download-btn">
-          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
-          </svg>
-        </a>
-      </div>
-
-      <div class="file-item">
-        <span class="file-type">
-          <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
-          </svg>
-        </span>
-        <div class="file-details">
-          <div class="file-name">Digital_Income_Blueprint.pdf</div>
-          <div class="file-size">PDF · 1.9 mb</div>
-        </div>
-        <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c.828 0 1.5.672 1.5 1.5S12.828 14 12 14s-1.5-.672-1.5-1.5S11.172 11 12 11z"/>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 11V7a5 5 0 00-10 0v4H5v9h14v-9h-2z"/>
-        </svg>
-      </div>
+    <div class="email-input">
+      <label for="userEmail" style="display:block; font-size: 15px; margin-bottom: 6px;">Enter your Email to receive the eBook:</label>
+      <input type="email" id="userEmail" placeholder="example@email.com" required />
     </div>
 
     <button class="complete-btn" onclick="makePayment()">Pay Now</button>
     <div class="footer">Next up ➤ Start your first online gig</div>
   </div>
 
+  <div class="popup" id="popup">Please enter a valid email</div>
+
   <script>
     function makePayment() {
-      var options = {
-        key: "rzp_test_YourAPIKeyHere",
+      const emailInput = document.getElementById("userEmail");
+      const popup = document.getElementById("popup");
+      const email = emailInput.value.trim();
+
+      if (!email || !validateEmail(email)) {
+        popup.classList.add("show");
+        setTimeout(() => popup.classList.remove("show"), 2000);
+        return;
+      }
+
+      const options = {
+        key: "rzp_test_YourAPIKeyHere", // Replace with your actual Razorpay key
         amount: 19900,
         currency: "INR",
         name: "HustleHubKit",
         description: "Digital Income Blueprint eBook",
-        image: "https://yourwebsite.com/logo.png",
         handler: function (response) {
-          alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+          // Send data to Make.com
+          fetch("https://hook.make.com/your-webhook-id", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: email,
+              payment_id: response.razorpay_payment_id
+            })
+          });
+          alert("Payment Successful! Check your email for the eBook.");
         },
         prefill: {
-          name: "",
-          email: "",
-          contact: ""
+          email: email
         },
         theme: {
           color: "#000000"
         }
       };
-      var rzp1 = new Razorpay(options);
-      rzp1.open();
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
   </script>
 </body>
